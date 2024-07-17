@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Connexion à la base de données
-$host = 'localhost';
-$dbname = 'pharmacie';
-$user = 'root';
-$pass = '';
+// Connexion à la base de données MySQL sur un serveur Oracle
+$host = '144.24.194.165/'; // Adresse du serveur Oracle
+$dbname = 'Pharmacie';
+$user = 'mysql_user'; // Nom d'utilisateur MySQL
+$pass = 'mysql_password'; // Mot de passe MySQL
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = htmlspecialchars($_POST['password']);
 
     // Préparer la requête pour vérifier les informations d'identification
-    $stmt = $pdo->prepare("SELECT * FROM user WHERE username = ?");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
