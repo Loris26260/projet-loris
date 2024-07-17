@@ -2,10 +2,11 @@
 session_start();
 
 // Connexion à la base de données
-$host = $_ENV['DB_HOST'];
-$dbname = $_ENV['DB_NAME'];
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASS'];
+$host = getenv('DB_HOST');
+$dbname = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+var_dump($host);
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
