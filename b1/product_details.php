@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 require 'ProductManager.php';
 
-$productManager = new ProductManager('localhost', 'root', '', 'pharmacie');
+$productManager = new ProductManager('localhost', getenv('DB_USER'), '', 'pharmacie');
 
 // Vérifier si l'ID du produit est passé en paramètre
 if (isset($_GET['id'])) {
