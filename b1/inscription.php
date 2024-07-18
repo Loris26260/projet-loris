@@ -14,10 +14,10 @@ $confirm_password = "";
 $error_message = "";
 
 // Connexion à la base de données
-$host = 'localhost';
-$dbname = 'pharmacie';
-$user = 'root';
-$pass = '';
+$host = getenv('DB_HOST');
+$dbname = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
