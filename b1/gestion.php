@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 require 'ProductManager.php';
-$productManager = new ProductManager('localhost', getenv('DB_USER'), getenv('DB_PASS');, 'Pharmacie');
+$productManager = new ProductManager('localhost', getenv('DB_USER'), getenv('DB_PASS'), 'Pharmacie');
 
 // Traitement pour ajouter un nouveau produit
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajouter'])) {
